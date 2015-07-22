@@ -1,5 +1,6 @@
 import os, threading, socket as sk
 
+address = 'irc.freenode.net'
 port = 6667
 nick = 'Nick'
 name = 'Bob'
