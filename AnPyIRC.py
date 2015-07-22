@@ -60,7 +60,8 @@ def recvmsg():
 			if(line[:4] == 'PING'):
 				sock.send('PONG' + line[4:])
 				print 'PONG' + line[4:]
-			print line
+			message = line.rsplit(':', 1)
+			print message[len(message) -1]
 	
 def init():
 	global option
