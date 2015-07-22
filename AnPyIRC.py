@@ -59,9 +59,13 @@ def recvmsg():
 		for line in lines:
 			if(line[:4] == 'PING'):
 				sock.send('PONG' + line[4:])
-				print 'PONG' + line[4:]
-			message = line.rsplit(':', 1)
-			print message[len(message) -1]
+			else:
+				message = line.rsplit(':', 4)
+				if any('PRIVMSG' in m for m in message):
+					name = line.split('!', 1)
+					print name[0] + ': ' + message[len(message) -1]
+				else:
+					print message[len(message) -1]
 	
 def init():
 	global option
